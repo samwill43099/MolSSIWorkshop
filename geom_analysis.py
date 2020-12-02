@@ -1,3 +1,13 @@
+"""
+This module has functions associated with analyzing the geometry of a molecule.
+
+When run as a script and given an xyz file, this script will print out the bonds. Run
+
+$ python geometry_analysis.py --help
+
+to see input options.
+"""
+
 import numpy
 import os
 import argparse
@@ -19,7 +29,7 @@ def bond_check(atom_distance, minimum_length=0, maximum_length=1.5):
 
 def open_xyz(filename):
     if '.xyz' not in filename:
-        raise ValueError(F' Invalid file {filename}. File type must be xyz')    
+        raise ValueError(F' Invalid file {filename}. File type must be xyz')
     else:
         xyz_file = numpy.genfromtxt(fname=filename, skip_header=2, dtype='unicode')
         symbols = xyz_file[:,0]
